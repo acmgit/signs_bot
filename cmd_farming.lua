@@ -49,8 +49,10 @@ local function planting(base_pos, mem, slot)
 					if minetest.registered_nodes[item] then
 						local p2 = minetest.registered_nodes[item].place_param2 or 1
 						minetest.set_node(pos, {name = item, param2 = p2})
+                        minetest.get_node_timer(pos):start(math.random(166, 286))
 					else
 						minetest.set_node(pos, {name = item})
+                        minetest.get_node_timer(pos):start(math.random(166, 286))
 					end
 					minetest.sound_play("default_place_node", {pos = pos, gain = 1.0})
 				else
